@@ -273,7 +273,7 @@ _.partition = function(arr, func) {
 _.unique = function(arr) {
     var newArray = [];
     _.each(arr, function(element, index, array) {
-        _.indexOf(newArray, element); 
+        _.indexOf(newArray, element);
         if (_.indexOf(newArray, element) === -1) {
             newArray.push(element);
         }
@@ -472,9 +472,14 @@ _.reduce = function(arr, func, seed) {
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
 
-_.extend = function(obj1, obj2) {
-
-    return Object.assign(obj1, obj2);
+_.extend = function(val, obj, coll) {
+    _.each(obj, function(prop, key, obj){
+       val[key] = obj[key];
+    });
+    _.each(coll, function(prop, key, coll){
+       val[key] = coll[key]; 
+    });
+    return val;
 };
 
 // This is the proper way to end a javascript library

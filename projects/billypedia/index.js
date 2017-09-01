@@ -57,6 +57,69 @@ $(document).ready(function() {
 
         });
         
+         $('.title-recordings').on('click', function(event) {
+                let elem = $(event.currentTarget);
+                $('#image-recordings').fadeOut('fast', function() {
+                    $('#image-recordings').attr('src', elem.attr('art'));
+                }).fadeIn('fast');
+            });
+            
+
+                
+            
+            $('#image-billy').on('click', function(event) {
+                
+                let elem = $(event.currentTarget);
+                let i = elem.attr('i');
+                if (i < data.images.billy.length - 1) {
+                    var src = data.images.billy[i++];
+                    elem.fadeOut('fast', function() {
+                        $('#image-billy')
+                            .attr('src', "images/billy/billy-" + i + ".jpg")
+                            .attr('i', i);
+                    }).fadeIn('fast');
+                }
+                else {
+                    elem.fadeOut('fast', function() {
+                        $('#image-billy')
+                            .attr('src', "images/billy/billy-0.jpg")
+                            .attr('i', '0');
+                    }).fadeIn('fast');
+                }
+            });
+            
+            
+            var createTable = function(equipment) {
+                var createRow = function(instrument) {
+                    var $row = $("<tr>");
+                    var $type = $("<td>").text(instrument.type);
+                    var $desc = $("<td>").text(instrument.desc)
+                        .attr('class', 'instrument-desc');
+                    $row.append($type);
+                    $row.append($desc);
+                    return $row;
+                };
+                var $table = $("<table>");
+                var $rows = equipment.map(createRow);
+                $table.append($rows);
+                return $table;
+            };
+            
+            
+            $('#sidebar')
+                .append($('<section>').attr('id', 'section-rider'));
+            createTable(data.rider).appendTo('#section-rider').attr('id', 'table-rider');
+            
+            
+            $('#section-rider')
+                .prepend($('<header>')
+                .text("Billy's Rider")
+                .attr('class', 'header'));
+            
+            
+            $('#table-rider').prepend($('<th>').text('Description'));
+            $('#table-rider').prepend($('<th>').text('Instrument'));
+        
          
             
         // YOUR CODE ABOVE HERE //
