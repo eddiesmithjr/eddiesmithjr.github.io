@@ -1,2 +1,2 @@
 # eddiesmithjr.github.io
-My First Website
+The natural progression of things.
