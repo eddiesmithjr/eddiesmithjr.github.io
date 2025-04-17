@@ -21,8 +21,8 @@ const Logo = ({
       <h1 className="m-0">
         <Link to="/">
           <Image
-            src={require('./../../../assets/images/logo.svg')}
-            alt="Open"
+            src={require('./../../../assets/images/new-wave-logo1.png')}
+            alt="New Wave MediaTech"
             width={32}
             height={32} />
         </Link>

@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 const propTypes = {
+  className: PropTypes.string,
   src: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.string
@@ -12,7 +13,6 @@ const propTypes = {
 }
 
 const defaultProps = {
-  src: undefined,
   width: undefined,
   height: undefined,
   alt: undefined
